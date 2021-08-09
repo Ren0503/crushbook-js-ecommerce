@@ -10,12 +10,24 @@ import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
 import Message from 'src/components/Message';
 import Loader from 'src/components/Loader';
 import { detailBook, updateBook } from 'src/actions/bookActions'
 import { BOOK_UPDATE_RESET } from 'src/constants/bookConstants'
 import MainLayout from 'src/layouts/MainLayout';
+
+const genresType = [
+    { value: 'Actions' },
+    { value: 'Adventure' },
+    { value: 'Fantasy' },
+    { value: 'Mystery' },
+    { value: 'History' },
+    { value: 'Romance' },
+    { value: 'Sci-Fic' },
+];
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -40,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const BookEdit = ({ history, match}) => {
+const BookEdit = ({ history, match }) => {
     const classes = useStyles();
     const bookId = match.params.id;
 
@@ -179,6 +191,7 @@ const BookEdit = ({ history, match}) => {
                             <Grid item xs={12}>
                                 <TextField
                                     variant="outlined"
+                                    type="number"
                                     required
                                     fullWidth
                                     id="price"
@@ -191,6 +204,7 @@ const BookEdit = ({ history, match}) => {
                             <Grid item xs={12}>
                                 <TextField
                                     variant="outlined"
+                                    type="number"
                                     required
                                     fullWidth
                                     id="sales"
@@ -199,7 +213,7 @@ const BookEdit = ({ history, match}) => {
                                     value={sales}
                                     onChange={(e) => setSales(e.target.value)}
                                 />
-                            </Grid>  
+                            </Grid>
                             <Grid item xs={12}>
                                 <TextField
                                     variant="outlined"
@@ -211,11 +225,11 @@ const BookEdit = ({ history, match}) => {
                                     value={image}
                                     onChange={(e) => setImage(e.target.value)}
                                 />
-                                <input 
-                                    accept="image/*" 
-                                    className={classes.input} 
-                                    id="icon-button-file" 
-                                    type="file" 
+                                <input
+                                    accept="image/*"
+                                    className={classes.input}
+                                    id="icon-button-file"
+                                    type="file"
                                     onChange={uploadFileHandler}
                                 />
                                 <label htmlFor="icon-button-file">
@@ -252,6 +266,7 @@ const BookEdit = ({ history, match}) => {
                             <Grid item xs={12}>
                                 <TextField
                                     variant="outlined"
+                                    type="number"
                                     required
                                     fullWidth
                                     id="pages"
@@ -262,16 +277,18 @@ const BookEdit = ({ history, match}) => {
                                 />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField
+                                <Select
+                                    label="Select Genres"
                                     variant="outlined"
-                                    required
-                                    fullWidth
                                     id="genres"
-                                    label="Enter Genres"
-                                    name="genres"
                                     value={genres}
+                                    fullWidth
                                     onChange={(e) => setGenres(e.target.value)}
-                                />
+                                >
+                                    {genresType.map((genreType, index) => (
+                                        <MenuItem key={index} value={genreType.value}>{genreType.value}</MenuItem>
+                                    ))}
+                                </Select>
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
@@ -296,19 +313,20 @@ const BookEdit = ({ history, match}) => {
                                     value={publisher}
                                     onChange={(e) => setPublisher(e.target.value)}
                                 />
-                            </Grid>    
+                            </Grid>
                             <Grid item xs={12}>
                                 <TextField
                                     variant="outlined"
+                                    type="number"
                                     required
                                     fullWidth
                                     id="countInStock"
                                     label="Enter Count In Stock"
-                                    name="countInStock"
+                                    name="number"
                                     value={countInStock}
                                     onChange={(e) => setCountInStock(e.target.value)}
                                 />
-                            </Grid>     
+                            </Grid>
                             <Grid item xs={12}>
                                 <TextField
                                     variant="outlined"
@@ -322,7 +340,7 @@ const BookEdit = ({ history, match}) => {
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                 />
-                            </Grid>           
+                            </Grid>
                         </Grid>
                         <Button
                             type="submit"
