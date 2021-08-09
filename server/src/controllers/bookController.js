@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler');
 const Book = require('../models/bookModel');
+const Author = require('../models/authorModel');
 
 // @desc    Fetch all books
 // @route   GET /api/books
@@ -111,6 +112,28 @@ exports.updateBook = asyncHandler(async (req, res) => {
         book.countInStock = countInStock;
 
         const updatedBook = await book.save();
+
+        const authorOfBook = await Author.findOne({ name: book.author });
+
+        if (authorOfBook) {
+            const addBook = {
+                item: updatedBook._id,
+                image: updatedBook.image,
+                name: updatedBook.name,
+            };
+
+            const alreadyBook = authorOfBook.books.find(
+                (r) => r.item.toString() === addBook.item.toString()
+            );
+
+            if (!alreadyBook) {
+                authorOfBook.books.push(addBook);
+            }
+
+            authorOfBook.numBooks = authorOfBook.books.length;
+            await authorOfBook.save();
+        }
+
         res.json(updatedBook);
     } else {
         res.status(404);
