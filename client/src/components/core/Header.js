@@ -28,6 +28,7 @@ const Header = () => {
                     </LinkContainer>
                     <Navbar.Toggle aria-controls='navbarScroll' />
                     <Navbar.Collapse id='navbarScroll'>
+                        <Route render={({ history }) => <SearchBox history={history} />} />
                         <Nav className='ml-auto' navbarScroll>
                             <Nav.Link href="/book">Book</Nav.Link>
                             <Nav.Link href="/author">Author</Nav.Link>

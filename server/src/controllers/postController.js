@@ -144,7 +144,7 @@ exports.incrementViews = asyncHandler(async (req, res) => {
 // @route   GET /api/posts/top
 // @access  Public
 exports.getTopPosts = asyncHandler(async (req, res) => {
-    const posts = await Post.find({}).sort({ views: -1 }).limit(3);
+    const posts = await Post.find({}).sort({ views: -1 }).limit(4);
 
     res.json(posts);
 })

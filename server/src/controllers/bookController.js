@@ -10,25 +10,6 @@ exports.getAllBooks = asyncHandler(async (req, res) => {
     const page = Number(req.query.pageNumber) || 1;
     const sort = req.query.sort || '-createdAt';
 
-    const keyword = req.query.keyword
-        ? {
-            name: {
-                $regex: req.query.keyword,
-                $options: 'i',
-            },
-        }
-        : {};
-
-    const genres = req.query.genres
-        ? {
-            genres: {
-                $regex: req.query.genres,
-                $options: 'i',
-            },
-
-        }
-        : {};
-
     const count = await Book.countDocuments({});
     const books = await Book.find({})
         .limit(pageSize)
@@ -36,7 +17,7 @@ exports.getAllBooks = asyncHandler(async (req, res) => {
         .sort(sort)
 
     res.json({ books, page, pages: Math.ceil(count / pageSize), count });
-})
+});
 
 // @desc    Fetch single book
 // @route   GET /api/books/:id
@@ -223,4 +204,50 @@ exports.getSalesBook = asyncHandler(async (req, res) => {
         .sort({ sales: -1 })
 
     res.json(books);
+});
+
+// @desc    search books
+// @route   GET /api/books
+// @access  Public
+exports.searchBooks = asyncHandler(async (req, res) => {
+    const keyword = req.query.keyword
+        ? {
+            name: {
+                $regex: req.query.keyword,
+                $options: 'i',
+            },
+        }
+        : {};
+
+    const genres = req.query.genres
+        ? {
+            genres: {
+                $regex: req.query.genres,
+                $options: 'i',
+            },
+
+        }
+        : {};
+
+    const rate = req.query.rate
+        ? {
+            rating: {
+                $eq: req.query.rate,
+            },
+
+        }
+        : {};
+
+    const price = req.query.bottom 
+        ? {
+            price: {
+                $gte: req.query.bottom,
+                $lte: req.query.top,
+            }
+        } : {};
+
+    const count = await Book.countDocuments({ ...keyword, ...genres, ...rate, ...price });
+    const books = await Book.find({ ...keyword, ...genres, ...rate, ...price }).sort({ createdAt: -1 })
+
+    res.json({ books, count });
 });

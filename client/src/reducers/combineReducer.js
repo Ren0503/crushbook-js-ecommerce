@@ -7,6 +7,7 @@ import {
     bookTopRatedReducer,
     bookSaleReducer,
     bookNewReleasesReducer,
+    bookSearchReducer,
 } from './bookReducers';
 
 import {
@@ -46,6 +47,7 @@ const reducer = combineReducers({
     bookTopRated: bookTopRatedReducer,
     bookSale: bookSaleReducer,
     bookNewReleases: bookNewReleasesReducer,
+    bookSearch: bookSearchReducer,
     cart: cartReducer,
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,

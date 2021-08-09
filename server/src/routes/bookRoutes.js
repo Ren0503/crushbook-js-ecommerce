@@ -14,6 +14,8 @@ router.get('/top', BookCtrl.getTopBooks)
 
 router.get('/releases', BookCtrl.getNewReleasesBook)
 
+router.get('/search', BookCtrl.searchBooks)
+
 router.get('/sales', BookCtrl.getSalesBook)
 
 router

@@ -146,3 +146,32 @@ export const listReleasesBooks = () => async (dispatch) => {
         });
     }
 };
+
+export const searchBooks = (
+    keyword = '', 
+    genres = '',
+    rate,
+    priceBottom,
+    priceTop
+) => async (dispatch) => {
+    try {
+        dispatch({ type: types.BOOK_SEARCH_REQUEST });
+
+        const { data } = await axios.get(
+            `/api/books/search?keyword=${keyword}&genres=${genres}&rate=${rate}&bottom=${priceBottom}&top=${priceTop}`
+        );
+
+        dispatch({
+            type: types.BOOK_SEARCH_SUCCESS,
+            payload: data,
+        });
+    } catch (error) {
+        dispatch({
+            type: types.BOOK_SEARCH_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+        });
+    }
+};
