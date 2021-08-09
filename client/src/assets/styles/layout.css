@@ -1,0 +1,44 @@
+/* 
+    Header 
+*/
+.navbar {
+    background: #470e72 !important;
+}
+
+/*
+    Background
+*/
+.bg-img-2 {
+    background-image: url("src/assets/images/bookshelf.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+  
+.bg-img-3 {
+    background-image: url("src/assets/images/home.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.bg-about-image {
+    background-image: linear-gradient(0deg, #000, transparent), url("src/assets/images/about.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+/*
+    Scroll To Top 
+*/
+.scroll-to-top {
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    animation: fadeIn 700ms ease-in-out 1s both;
+    cursor: pointer;
+    z-index: 99;
+}

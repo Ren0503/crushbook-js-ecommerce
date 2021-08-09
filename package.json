@@ -1,0 +1,18 @@
+{
+  "name": "react-shop-fullstack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Ren0503/react-fullstack.git",
+  "author": "Ren0503 <illuminati0440@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  },
+  "scripts": {
+    "server": "npm start --prefix server",
+    "admin": "npm start --prefix admin",
+    "client": "npm start --prefix client",
+    "start:admin": "concurrently \"npm run server\" \"npm run admin\"",
+    "start:client": "concurrently \"npm run server\" \"npm run client\""
+  }
+}

@@ -1,0 +1,45 @@
+.post {
+    background: #fff;
+}
+
+.post-img {
+    border-radius: 10px;
+    box-shadow: 1px 3px 10px #000;
+    border: 1px solid #fff;
+}
+
+.bg-post-image {
+    background-image: linear-gradient(45deg, #fff, #000), url("src/assets/images/write.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.paper {
+    box-shadow: 1px 3px 3px #000;
+    margin: 1rem 0;
+    padding: 3rem;
+    border: 1px solid #aaa;
+}
+
+.post-title {
+    background: #000c;
+}
+  
+.post-frame {
+    border: 5px solid #dee2e6;
+}
+
+.post-card {
+    background-image: url("src/assets/images/card.jpg");
+    color: #fff;
+}
+
+.post-card h6 {
+    color: #fff;
+}
+
+.post-card-img {
+    box-shadow: 1px 3px 3px 2px #000;
+}
