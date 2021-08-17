@@ -149,10 +149,16 @@ const Order = ({ match, history }) => {
             <Grid container spacing={3}>
                 <Grid item xs={12} md={4} lg={3}>
                     <Paper className={classes.fixedHeightPaper}>
-                        <List className={classes.root}>
-                            <Typography component="h3" variant="h5">
-                                Shipping
-                            </Typography>
+                        <List 
+                            component="nav"
+                            aria-labelledby="ship-list-subheader"
+                            subheader={
+                                <ListSubheader component="div" id="ship-list-subheader">
+                                    Shipping
+                                </ListSubheader>
+                            }                        
+                            className={classes.root}
+                        >
                             <ListItem>
                                 <ListItemAvatar>
                                     <Avatar alt="User" src={order.user.avatar} />
@@ -199,13 +205,19 @@ const Order = ({ match, history }) => {
                             </ListItem>
                         </List>
                     </Paper>
-                </Grid>  
+                </Grid>
                 <Grid item xs={12} md={4} lg={3}>
                     <Paper className={classes.fixedHeightPaper}>
-                        <List className={classes.root}>
-                            <Typography component="h3" variant="h5">
-                                Payment Method
-                            </Typography>
+                        <List
+                            component="nav"
+                            aria-labelledby="payment-list-subheader"
+                            subheader={
+                                <ListSubheader component="div" id="payment-list-subheader">
+                                    Payment Method
+                                </ListSubheader>
+                            }
+                            className={classes.root}
+                        >
                             <ListItem>
                                 <ListItemAvatar>
                                     <Avatar>
@@ -224,12 +236,18 @@ const Order = ({ match, history }) => {
                         </List>
                     </Paper>
                 </Grid>
-                <Grid item xs={12} md={4} lg={3}>  
+                <Grid item xs={12} md={4} lg={3}>
                     <Paper className={classes.fixedHeightPaper}>
-                        <List className={classes.root}>
-                            <Typography component="h3" variant="h5">
-                                Order Items
-                            </Typography>
+                        <List
+                            component="nav"
+                            aria-labelledby="items-list-subheader"
+                            subheader={
+                                <ListSubheader component="div" id="items-list-subheader">
+                                    Order Items
+                                </ListSubheader>
+                            }
+                            className={classes.root}
+                        >
                             {order.orderItems.length === 0 ? (
                                 <Message>Order is empty</Message>
                             ) : (

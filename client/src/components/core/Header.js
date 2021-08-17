@@ -1,9 +1,7 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav, Container, NavDropdown, Image } from 'react-bootstrap';
-import SearchBox from './Search';
 import { logout } from 'src/actions/userActions';
 import logo from 'src/assets/images/logo.png'
 

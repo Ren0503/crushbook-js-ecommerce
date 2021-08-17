@@ -23,7 +23,7 @@ const Filter = ({ history }) => {
     return (
         <Form onSubmit={submitHandler} className="filter">
             <Row>
-                <Col>
+                <Col sm={12} md={6} lg={3}>
                     <Form.Label>Name</Form.Label>
                     <Form.Control
                         type="text"
@@ -31,7 +31,7 @@ const Filter = ({ history }) => {
                         onChange={(e) => setKeyword(e.target.value)}
                     />
                 </Col>
-                <Col>
+                <Col sm={12} md={6} lg={3}>
                     <Form.Label>Genres</Form.Label>
                     <select
                         onChange={(e) => setGenres(e.target.value)}
@@ -46,7 +46,7 @@ const Filter = ({ history }) => {
                         <option value="Sci-Fic">Sci-Fic</option>
                     </select>
                 </Col>
-                <Col>
+                <Col sm={12} md={6} lg={3}>
                     <Form.Label>Choose Price Range</Form.Label>
                     <OverlayTrigger
                         placement="top"
@@ -55,13 +55,13 @@ const Filter = ({ history }) => {
                         <Range min={0} max={120} allowCross={false} onChange={handleRange} />
                     </OverlayTrigger>
                 </Col>
-                <Col>
+                <Col sm={12} md={6} lg={2}>
                     <Form.Label>Rating</Form.Label>
 
                     <select
                         onChange={(e) => setRate(e.target.value)}
                     >
-                        <option >Open this select rating</option>
+                        <option>Select rating</option>
                         <option value={0}>Zero</option>
                         <option value={1}>One</option>
                         <option value={2}>Two</option>
@@ -70,9 +70,9 @@ const Filter = ({ history }) => {
                         <option value={5}>Five</option>
                     </select>
                 </Col>
-                <Col className="text-center mt-3">
+                <Col sm={12} md={6} lg={1} className="text-center mt-3">
                     <Button type='submit' className='p-2'>
-                        Search <i className="fas fa-search"></i>
+                        <i className="fas fa-search"></i>
                     </Button>
                 </Col>
             </Row>

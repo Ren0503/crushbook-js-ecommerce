@@ -123,4 +123,5 @@
 .filter select {
     padding: 0.4em;
     border-radius: 5px;
+    width: 100%;
 }
