@@ -6,12 +6,13 @@ import { Meta, Loader, Message, Paginate } from 'src/components/shared';
 import { Book } from 'src/components/book';
 import { listBooks } from 'src/actions/bookActions';
 import { TopRatedBooks } from 'src/components/home';
-import SearchBox from 'src/components/core/Search';
 import Filter from 'src/components/core/Filter';
+import { useQuery } from 'src/hooks/useQuery';
 
 const BookHomeScreen = ({ match }) => {
+    const query = useQuery();
     const pageNumber = match.params.pageNumber || 1;
-    const sort = match.params.sort;
+    const sort = query.get('sort');
 
     const dispatch = useDispatch();
     const bookList = useSelector(state => state.bookList);
@@ -42,11 +43,11 @@ const BookHomeScreen = ({ match }) => {
 
                     <Dropdown.Menu>
                         <Dropdown.Item href="/book">Sort by latest</Dropdown.Item>
-                        <Dropdown.Item href="/sort/-sales">Sort by sales</Dropdown.Item>
-                        <Dropdown.Item href="/sort/name">Sort by A-Z</Dropdown.Item>
-                        <Dropdown.Item href="/sort/-rating">Sort by rating</Dropdown.Item>
-                        <Dropdown.Item href="/sort/price">Sort by price : low to high </Dropdown.Item>
-                        <Dropdown.Item href="/sort/-price">Sort by price : high to low </Dropdown.Item>
+                        <Dropdown.Item href="/book?sort=-sales">Sort by sales</Dropdown.Item>
+                        <Dropdown.Item href="/book?sort=name">Sort by A-Z</Dropdown.Item>
+                        <Dropdown.Item href="/book?sort=-rating">Sort by rating</Dropdown.Item>
+                        <Dropdown.Item href="/book?sort=price">Sort by price : low to high </Dropdown.Item>
+                        <Dropdown.Item href="/book?sort=-price">Sort by price : high to low </Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
                 <h6 className="align-right text-right">Showing {1 + Number(pageNumber - 1) * 12} - {pageNumber * 12} of {count} result</h6>
@@ -68,7 +69,7 @@ const BookHomeScreen = ({ match }) => {
                         category="books"
                         pages={pages}
                         page={page}
-                        sort={sort}
+                        query={`sort=${sort}`}
                     />
                 </>
             )}

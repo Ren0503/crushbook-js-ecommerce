@@ -7,7 +7,7 @@ const Filter = ({ history }) => {
     const [keyword, setKeyword] = useState('');
     const [genres, setGenres] = useState('');
     const [rate, setRate] = useState(0);
-    const [price, setPrice] = useState([0, 100]);
+    const [price, setPrice] = useState([0, 120]);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -17,7 +17,6 @@ const Filter = ({ history }) => {
     };
 
     const handleRange = (value) => {
-        console.log(price[0])
         setPrice(value);
     }
 
@@ -37,7 +36,7 @@ const Filter = ({ history }) => {
                     <select
                         onChange={(e) => setGenres(e.target.value)}
                     >
-                        <option disabled>Open this genres type</option>
+                        <option >Open this genres type</option>
                         <option value="Action">Action</option>
                         <option value="Adventure">Adventure</option>
                         <option value="Fantasy">Fantasy</option>
@@ -53,7 +52,7 @@ const Filter = ({ history }) => {
                         placement="top"
                         overlay={<Tooltip id="button-tooltip-2">From ${price[0]} to ${price[1]}</Tooltip>}
                     >
-                        <Range min={0} max={100} allowCross={false} onChange={handleRange} />
+                        <Range min={0} max={120} allowCross={false} onChange={handleRange} />
                     </OverlayTrigger>
                 </Col>
                 <Col>
@@ -62,7 +61,7 @@ const Filter = ({ history }) => {
                     <select
                         onChange={(e) => setRate(e.target.value)}
                     >
-                        <option disabled>Open this select rating</option>
+                        <option >Open this select rating</option>
                         <option value={0}>Zero</option>
                         <option value={1}>One</option>
                         <option value={2}>Two</option>
@@ -71,7 +70,7 @@ const Filter = ({ history }) => {
                         <option value={5}>Five</option>
                     </select>
                 </Col>
-                <Col className="text-center mt-1">
+                <Col className="text-center mt-3">
                     <Button type='submit' className='p-2'>
                         Search <i className="fas fa-search"></i>
                     </Button>

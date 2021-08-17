@@ -59,77 +59,63 @@ const Genres = () => {
                     options={{ animationData: actionType }}
                     height={100}
                 />
-                <Link to="/genres/epic">
-                    <h6 className='text-center'>
-                        EPIC
-                    </h6>
-                </Link>
+                <h6 className='text-center'>
+                    EPIC
+                </h6>
             </Figure>
             <Figure>
                 <Lottie
                     options={{ animationData: adventureType }}
                     height={100}
                 />
-                <Link to="/genres/adventure">
-                    <h6 className='text-center'>
-                        ADVENTURE
-                    </h6>
-                </Link>
+                <h6 className='text-center'>
+                    ADVENTURE
+                </h6>
             </Figure>
             <Figure>
                 <Lottie
                     options={{ animationData: fantasyType }}
                     height={100}
                 />
-                <Link to="/genres/fantasy">
-                    <h6 className='text-center'>
-                        FANTASY
-                    </h6>
-                </Link>
+                <h6 className='text-center'>
+                    FANTASY
+                </h6>
             </Figure>
             <Figure>
                 <Lottie
                     options={{ animationData: historyType }}
                     height={100}
                 />
-                <Link to="/genres/historical">
-                    <h6 className='text-center'>
-                        HISTORY
-                    </h6>
-                </Link>
+                <h6 className='text-center'>
+                    HISTORY
+                </h6>
             </Figure>
             <Figure>
                 <Lottie
                     options={{ animationData: mysteryType }}
                     height={100}
                 />
-                <Link to="/genres/mystery">
-                    <h6 className='text-center'>
-                        MYSTERY
-                    </h6>
-                </Link>
+                <h6 className='text-center'>
+                    MYSTERY
+                </h6>
             </Figure>
             <Figure>
                 <Lottie
                     options={{ animationData: romanceType }}
                     height={100}
                 />
-                <Link to="/genres/romance">
-                    <h6 className='text-center'>
-                        ROMANCE
-                    </h6>
-                </Link>
+                <h6 className='text-center'>
+                    ROMANCE
+                </h6>
             </Figure>
             <Figure>
                 <Lottie
                     options={{ animationData: sciFicType }}
                     height={100}
                 />
-                <Link to="/genres/fiction">
-                    <h6 className='text-center'>
-                        SCI_FIC
-                    </h6>
-                </Link>
+                <h6 className='text-center'>
+                    SCI_FIC
+                </h6>
             </Figure>
         </Slider>
     );

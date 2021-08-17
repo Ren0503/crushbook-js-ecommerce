@@ -2,13 +2,13 @@ import React from 'react';
 import { Pagination } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const Paginate = ({ category, pages, page, sort = '' }) => {
+const Paginate = ({ category, pages, page, query = '' }) => {
     return (
         pages > 1 && (
             <Pagination>
                 <LinkContainer to={
-                    sort
-                        ? `/sort/${sort}/${category}/1`
+                    query
+                        ? `/${category}/1?${query}`
                         : `/${category}/1`
                 }>
                     <Pagination.First disabled={page === 1} />
@@ -17,8 +17,8 @@ const Paginate = ({ category, pages, page, sort = '' }) => {
                     <LinkContainer
                         key={x + 1}
                         to={
-                            sort
-                                ? `/sort/${sort}/${category}/${x + 1}`
+                            query
+                                ? `/${category}/${x + 1}?${query}`
                                 : `/${category}/${x + 1}`
                         }
                     >
@@ -28,8 +28,8 @@ const Paginate = ({ category, pages, page, sort = '' }) => {
                     </LinkContainer>
                 ))}
                 <LinkContainer to={
-                    sort
-                        ? `/sort/${sort}/${category}/${pages}`
+                    query
+                        ? `/${category}/${pages}?${query}`
                         : `/${category}/${pages}`
                 }>
                     <Pagination.Last disabled={page === pages} />

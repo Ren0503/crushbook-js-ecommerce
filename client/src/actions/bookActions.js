@@ -152,13 +152,14 @@ export const searchBooks = (
     genres = '',
     rate,
     priceTop,
-    priceBottom
+    priceBottom,
+    pageNumber = '', 
 ) => async (dispatch) => {
     try {
         dispatch({ type: types.BOOK_SEARCH_REQUEST });
 
         const { data } = await axios.get(
-            `/api/books/search?keyword=${keyword}&genres=${genres}&rate=${rate}&bottom=${priceBottom}&top=${priceTop}`
+            `/api/books/search?keyword=${keyword}&genres=${genres}&rate=${rate}&bottom=${priceBottom}&top=${priceTop}&pageNumber=${pageNumber}`
         );
 
         dispatch({

@@ -8,22 +8,23 @@ import { searchBooks } from 'src/actions/bookActions';
 import { useQuery } from 'src/hooks/useQuery';
 import { Filter } from 'src/components/core';
 
-const SearchScreen = () => {
+const SearchScreen = ({ match }) => {
     const query = useQuery();
 
     const keyword = query.get('keyword') || '';
     const genres = query.get('genres') || '';
     const rate = query.get('rate') || 0;
-    const priceTop = query.get('top') || 100;
+    const priceTop = query.get('top') || 120;
     const priceBottom = query.get('bottom') || 0;
 
+    const pageNumber = match.params.pageNumber || 1;
     const dispatch = useDispatch();
     const bookSearch = useSelector(state => state.bookSearch)
-    const { loading, error, books, count } = bookSearch;
+    const { loading, error, books, page, pages, count } = bookSearch;
 
     useEffect(() => {
-        dispatch(searchBooks(keyword, genres, rate, priceTop, priceBottom));
-    }, [dispatch, keyword, genres, rate, priceTop, priceBottom]);
+        dispatch(searchBooks(keyword, genres, rate, priceTop, priceBottom, pageNumber));
+    }, [dispatch, keyword, genres, rate, priceTop, priceBottom, pageNumber]);
 
     return (
         <Container>
@@ -35,7 +36,7 @@ const SearchScreen = () => {
                 </Breadcrumb.Item>
             </Breadcrumb>
 
-            <Route render={({history}) => <Filter history={history} />} />
+            <Route render={({ history }) => <Filter history={history} />} />
             <h6 className="align-right text-right">Showing {count} books</h6>
             {loading ? (
                 <Loader />
@@ -50,6 +51,12 @@ const SearchScreen = () => {
                             </Col>
                         ))}
                     </Row>
+                    <Paginate
+                        category="search"
+                        pages={pages}
+                        page={page}
+                        query={`keyword=${keyword}&genres=${genres}&rate=${rate}&bottom=${priceBottom}&top=${priceTop}`}
+                    />
                 </>
             )}
         </Container>

@@ -16,7 +16,8 @@ export default function HomeRoutes() {
             <Route path='/contact' component={ContactScreen} />
             <Route path='/cart/:id?' component={CartScreen} />
             <Route path='/' component={HomeScreen} exact />
-            <Route path='/search' component={SearchScreen} />
+            <Route path='/search' component={SearchScreen} exact />
+            <Route path='/search/:pageNumber' component={SearchScreen} exact />
         </ScrollToTop>
     )
 };

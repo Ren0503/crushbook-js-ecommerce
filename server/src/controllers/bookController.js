@@ -210,6 +210,9 @@ exports.getSalesBook = asyncHandler(async (req, res) => {
 // @route   GET /api/books
 // @access  Public
 exports.searchBooks = asyncHandler(async (req, res) => {
+    const pageSize = 12;
+    const page = Number(req.query.pageNumber) || 1;
+
     const keyword = req.query.keyword
         ? {
             name: {
@@ -247,7 +250,10 @@ exports.searchBooks = asyncHandler(async (req, res) => {
         } : {};
 
     const count = await Book.countDocuments({ ...keyword, ...genres, ...rate, ...price });
-    const books = await Book.find({ ...keyword, ...genres, ...rate, ...price }).sort({ createdAt: -1 })
+    const books = await Book.find({ ...keyword, ...genres, ...rate, ...price })
+        .sort({ createdAt: -1 })
+        .limit(pageSize)
+        .skip(pageSize * (page - 1))
 
-    res.json({ books, count });
+    res.json({ books, page, pages: Math.ceil(count / pageSize), count });
 });
