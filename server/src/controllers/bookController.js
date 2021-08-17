@@ -238,7 +238,7 @@ exports.searchBooks = asyncHandler(async (req, res) => {
         }
         : {};
 
-    const price = req.query.bottom 
+    const price = req.query.bottom && req.query.top
         ? {
             price: {
                 $gte: req.query.bottom,

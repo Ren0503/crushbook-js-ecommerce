@@ -1,7 +1,2 @@
-import AuthorList from './AuthorListScreen';
-import AuthorDetail from './AuthorDetailScreen';
-
-export {
-    AuthorList,
-    AuthorDetail,
-};
+export { default as AuthorListScreen } from './AuthorListScreen';
+export { default as AuthorDetailScreen } from './AuthorDetailScreen';

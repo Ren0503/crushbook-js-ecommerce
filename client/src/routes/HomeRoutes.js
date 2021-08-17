@@ -6,6 +6,7 @@ import {
     AboutScreen,
     ContactScreen,
     CartScreen,
+    SearchScreen
 } from 'src/screens/Home';
 
 export default function HomeRoutes() {
@@ -15,6 +16,7 @@ export default function HomeRoutes() {
             <Route path='/contact' component={ContactScreen} />
             <Route path='/cart/:id?' component={CartScreen} />
             <Route path='/' component={HomeScreen} exact />
+            <Route path='/search' component={SearchScreen} />
         </ScrollToTop>
     )
 };

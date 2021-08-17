@@ -1,7 +1,2 @@
-import PostList from './PostListScreen';
-import PostDetail from './PostDetailScreen';
-
-export {
-    PostList,
-    PostDetail,
-};
+export { default as PostListScreen } from './PostListScreen';
+export { default as PostDetailScreen } from './PostDetailScreen';

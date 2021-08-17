@@ -1,9 +1,3 @@
-import LoginScreen from './LoginScreen'
-import RegisterScreen from './RegisterScreen'
-import ProfileScreen from './ProfileScreen'
-
-export {
-    LoginScreen,
-    ProfileScreen,
-    RegisterScreen,
-}
+export { default as LoginScreen } from './LoginScreen';
+export { default as ProfileScreen } from './ProfileScreen';
+export { default as RegisterScreen } from './RegisterScreen';

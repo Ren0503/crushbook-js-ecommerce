@@ -108,3 +108,19 @@
     background-color: #fff;
     border-radius: 100%;
 }
+
+/*
+    Form Filter
+*/
+.filter {
+    padding: 1rem;
+    margin: 1em;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #4d0067, #dc3545);
+    color: #fff;
+}
+
+.filter select {
+    padding: 0.4em;
+    border-radius: 5px;
+}

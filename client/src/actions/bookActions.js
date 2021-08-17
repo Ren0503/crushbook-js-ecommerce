@@ -151,8 +151,8 @@ export const searchBooks = (
     keyword = '', 
     genres = '',
     rate,
-    priceBottom,
-    priceTop
+    priceTop,
+    priceBottom
 ) => async (dispatch) => {
     try {
         dispatch({ type: types.BOOK_SEARCH_REQUEST });

@@ -1,7 +1,2 @@
-import BookHome from './BookHomeScreen';
-import BookDetail from './BookDetailScreen';
-
-export {
-    BookHome,
-    BookDetail,
-};
+export { default as BookDetailScreen } from './BookDetailScreen';
+export { default as BookHomeScreen } from './BookHomeScreen';

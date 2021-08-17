@@ -1,11 +1,5 @@
-import HomeScreen from './HomeScreen';
-import AboutScreen from './AboutScreen';
-import ContactScreen from './ContactScreen';
-import CartScreen from './CartScreen';
-
-export {
-    HomeScreen,
-    AboutScreen,
-    ContactScreen,
-    CartScreen,
-};
+export { default as HomeScreen } from './HomeScreen';
+export { default as SearchScreen } from './SearchScreen';
+export { default as CartScreen } from './CartScreen';
+export { default as AboutScreen } from './AboutScreen';
+export { default as ContactScreen } from './ContactScreen';

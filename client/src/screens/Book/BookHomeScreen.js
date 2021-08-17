@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Breadcrumb, Dropdown } from 'react-bootstrap';
 import { Meta, Loader, Message, Paginate } from 'src/components/shared';
 import { Book } from 'src/components/book';
 import { listBooks } from 'src/actions/bookActions';
 import { TopRatedBooks } from 'src/components/home';
+import SearchBox from 'src/components/core/Search';
+import Filter from 'src/components/core/Filter';
 
 const BookHomeScreen = ({ match }) => {
     const pageNumber = match.params.pageNumber || 1;
@@ -30,7 +32,7 @@ const BookHomeScreen = ({ match }) => {
             </Breadcrumb>
 
             <TopRatedBooks />
-
+            <Route render={({ history }) => <Filter history={history} />} />
             <h1 className="mt-2 text-center">Latest Book</h1>
             <div>
                 <Dropdown className="text-left">

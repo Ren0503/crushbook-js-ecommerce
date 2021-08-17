@@ -94,7 +94,11 @@ export const bookSearchReducer = (state = { books: [] }, action) => {
         case types.BOOK_SEARCH_REQUEST:
             return { loading: true, books: [] };
         case types.BOOK_SEARCH_SUCCESS:
-            return { loading: false, books: action.payload };
+            return { 
+                loading: false, 
+                books: action.payload.books,
+                count: action.payload.count, 
+            };
         case types.BOOK_SEARCH_FAIL:
             return { loading: false, error: action.payload };
         default:

@@ -2,23 +2,23 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { ScrollToTop } from 'src/components/shared';
 import {
-    BookHome,
-    BookDetail,
+    BookHomeScreen,
+    BookDetailScreen,
 } from 'src/screens/Book';
 import "src/assets/styles/book.css";
 
 export default function BookRoutes() {
     return (
         <ScrollToTop>
-            <Route path='/book/:id' component={BookDetail} />
-            <Route path='/books/:pageNumber' component={BookHome} exact />
-            <Route path='/sort/:sort' component={BookHome} exact />
+            <Route path='/book/:id' component={BookDetailScreen} />
+            <Route path='/books/:pageNumber' component={BookHomeScreen} exact />
+            <Route path='/sort/:sort' component={BookHomeScreen} exact />
             <Route
                 path='/sort/:sort/books/:pageNumber'
-                component={BookHome}
+                component={BookHomeScreen}
                 exact
             />
-            <Route path='/book' component={BookHome} exact />
+            <Route path='/book' component={BookHomeScreen} exact />
         </ScrollToTop>
     )
 };
