@@ -1,5 +1,5 @@
 # CrushBook Shop
-![CrushBook](https://github.com/Ren0503/crushbook-js-ecommerce/blob/master/client/src/assets/images/header.jpg)
+![CrushBook](https://github.com/Ren0503/crushbook-js-ecommerce/blob/master/client/src/assets/images/header.png)
 > Shop with M.E.R.N Stack and Redux. Repository is divided into 3 main packages: 
 - **server** This package container API for CrushBook Shop, build with Nodejs, Express and MongoDB with Mongoose. Use REST API.
 - **admin** Is Admin Dashboard for CrushBook Shop, built with React, Redux and Material UI.
