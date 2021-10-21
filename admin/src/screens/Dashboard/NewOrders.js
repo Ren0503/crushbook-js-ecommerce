@@ -26,23 +26,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const NewOrders = ({ history }) => {
+const NewOrders = () => {
     const classes = useStyles();
     const dispatch = useDispatch()
 
     const orderList = useSelector((state) => state.orderList);
     const { loading, error, orders } = orderList;
 
-    const userLogin = useSelector((state) => state.userLogin);
-    const { userInfo } = userLogin;
-
     useEffect(() => {
-        if (userInfo && userInfo.isAdmin) {
             dispatch(listOrders());
-        } else {
-            history.push('/login');
-        }
-    }, [dispatch, history, userInfo]);
+    }, [dispatch]);
     return (
         <div className={classes.root}>
             {loading ? (

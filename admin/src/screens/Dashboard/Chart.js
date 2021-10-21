@@ -1,12 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useTheme } from '@material-ui/core/styles';
 import {
-    LineChart,
-    Line,
     XAxis,
     YAxis,
-    Label,
     Area,
     AreaChart,
     CartesianGrid,
@@ -46,23 +42,15 @@ const getRevenue = (orders) => {
     }));
 }
 
-export default function Chart({ history }) {
-    const theme = useTheme();
+export default function Chart() {
     const dispatch = useDispatch()
 
     const orderList = useSelector((state) => state.orderList);
     const { loading, error, orders } = orderList;
 
-    const userLogin = useSelector((state) => state.userLogin);
-    const { userInfo } = userLogin;
-
     useEffect(() => {
-        if (userInfo && userInfo.isAdmin) {
-            dispatch(listOrders());
-        } else {
-            history.push('/login');
-        }
-    }, [dispatch, history, userInfo]);
+        dispatch(listOrders());
+    }, [dispatch]);
 
     return (
         <React.Fragment>

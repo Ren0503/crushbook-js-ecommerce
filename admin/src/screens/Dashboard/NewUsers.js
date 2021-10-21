@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
 import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -25,23 +24,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const NewUsers = ({ history }) => {
+const NewUsers = () => {
     const classes = useStyles();
     const dispatch = useDispatch()
 
     const userList = useSelector((state) => state.userList)
     const { loading, error, users } = userList
 
-    const userLogin = useSelector((state) => state.userLogin)
-    const { userInfo } = userLogin
-
     useEffect(() => {
-        if (userInfo && userInfo.isAdmin) {
-            dispatch(listUsers())
-        } else {
-            history.push('/login')
-        }
-    }, [dispatch, history, userInfo])
+        dispatch(listUsers())
+    }, [dispatch])
     return (
         <div className={classes.root}>
             {loading ? (
