@@ -20,6 +20,42 @@
 - Checkout process (shipping, payment method, etc)
 - PayPal / credit card integration
 
+## Install
+
+Clone repo and add .env in server folder
+
+```
+NODE_ENV = development
+PORT = 5000
+MONGO_URI = Your db
+JWT_SECRET = Your key
+PAYPAL_CLIENT_ID = Your id
+```
+
+Run in server:
+
+```
+cd server
+yarn
+yarn start
+```
+
+Run in admin:
+
+```
+cd admin
+yarn
+yarn start
+```
+
+Run in web:
+
+```
+cd client
+yarn
+yarn start
+```
+
 ### Server
 
 | Plugin | README |
