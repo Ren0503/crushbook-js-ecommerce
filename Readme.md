@@ -1,28 +1,27 @@
 # CrushBook Shop
 ![CrushBook](https://github.com/Ren0503/crushbook-js-ecommerce/blob/master/client/src/assets/images/header.png)
-> Shop with M.E.R.N Stack and Redux. Repository is divided into 3 main packages: 
-- **server** This package container API for CrushBook Shop, build with Nodejs, Express and MongoDB with Mongoose. Use REST API.
-- **admin** Is Admin Dashboard for CrushBook Shop, built with React, Redux and Material UI.
-- **client** Is a frontend for CrushBook Shop, build with React, Redux and Bootstraps.
+> Trang Ecommerce với M.E.R.N Stack và Redux. Repo bao gồm 3 phần chính là:
+- **server** : chứa API cho shop, được tạo bằng Node.js, Express và MongoDB. Sử dụng RESTful API.
+- **admin** : trang admin quản lý shop, được tạo bằng React, Redux và Material UI.
+- **client** : trang web cho người dùng, được tạo bằng React, Redux và Bootstraps.
 
-## Features
 
-- Full featured shopping cart
-- Book reviews and ratings
-- Top books carousel
-- Book pagination
-- Book search feature
-- User profile with orders
-- Admin product management
-- Admin user management
-- Admin Order details page
-- Mark orders as delivered option
-- Checkout process (shipping, payment method, etc)
-- PayPal / credit card integration
+## Tính năng
 
-## Install
+- Đầy đủ tính năng cho giỏ hàng.
+- Review sách và đánh giá.
+- Sản phẩm nổi bật/đang sale.
+- Phân trang.
+- Hỗ trợ bộ lọc tìm kiếm.
+- Cập nhật thông tin người dùng.
+- Trang admin quản lý.
+- Sử dụng paypal để thanh toán.
+- Đánh dấu đơn hàng đã được thanh toán, đã chuyển phát.
+- Tác giả và bài blog hay về sách.
 
-Clone repo and add .env in server folder
+## Cài đặt
+
+Clone repo và thêm .env vào thư mục server.
 
 ```
 NODE_ENV = development
@@ -32,7 +31,7 @@ JWT_SECRET = Your key
 PAYPAL_CLIENT_ID = Your id
 ```
 
-Run in server:
+Run server:
 
 ```
 cd server
@@ -40,7 +39,7 @@ yarn
 yarn start
 ```
 
-Run in admin:
+Run admin:
 
 ```
 cd admin
@@ -48,7 +47,7 @@ yarn
 yarn start
 ```
 
-Run in web:
+Run web:
 
 ```
 cd client
@@ -98,7 +97,7 @@ yarn start
 | redux | [plugins/redux/README.md](https://github.com/reduxjs/redux)|
 | redux-thunk | [plugins/redux-thunk/README.md](https://github.com/reduxjs/redux-thunk/blob/master/README.md) |
 
-## Core Structure
+## Cấu trúc
     code
       ├── package.json
       │
